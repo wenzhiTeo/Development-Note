@@ -5,5 +5,5 @@ Some development tips &amp; issues solution
 tips & some solution for windows pull linux backend
 
 ## Window WSL2 Development Setup.md
-Setup WSL2 Development Environment with vsCode
+Setup WSL2 Development Environment
 
