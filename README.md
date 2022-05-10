@@ -1,6 +1,9 @@
 # Development-Note
 Some development tips &amp; issues solution
 
-## cmd.txt
-tips for windows pull linux backend
-.sh file end of line should use LF
+## Win pull Linux.md
+tips & some solution for windows pull linux backend
+
+## Window WSL2 Development Setup.md
+Setup WSL2 Development Environment
+
