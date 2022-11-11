@@ -5,9 +5,4 @@
 `sudo docker-compose exec db psql -U postgres`
 
 
-## Fix chown error
 
-open cmd -> `wsl -d Ubuntu-22.04 -u root`
-
-
-`chown root:root /etc/*`
