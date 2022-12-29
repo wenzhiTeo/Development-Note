@@ -1,8 +1,12 @@
-  /* 
-    Custom debounce throttle function to avoid redundant checking 
-    When still having changes in 2 seconds, start throttled checking every 1 second
-    instead of check based on input
-  */
+   
+  Custom **debounce throttle function** to avoid redundant checking.
+  
+  
+  When still having changes in 2 seconds, start throttled checking every 1 second
+  instead of check based on input
+  
+  
+  ```js
   debounceThrottleUpdateChecking = () => {
     /* When a new cycle of changes started */
     if (!this.isUpdateRecently) {
@@ -39,3 +43,4 @@
       }, 2000);
     }
   };
+```
