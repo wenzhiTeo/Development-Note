@@ -13,7 +13,7 @@ while true; do **pipenv run python manage.py test -----** ; done
 for i in {1..5}; do **pipenv run python manage.py test -----** ; done
 
 # Testcases related to Redis
-Django wont reset/flush the Redis, sometimes this behaviour might lead test fail
+Django wont reset/flush the Redis, sometimes this behaviour might lead test fail, we can replace redis connection with fakeredis
 
 ```Python
 import fakeredis
