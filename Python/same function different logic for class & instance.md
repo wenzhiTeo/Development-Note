@@ -1,4 +1,4 @@
-# Allow a funtion handling the logic separately between class and instance call
+# Allow a function handling the logic separately between class and instance call
 
 **Description**
 - There is some situation we need a function that able to call by class & instance simultaneously. 
