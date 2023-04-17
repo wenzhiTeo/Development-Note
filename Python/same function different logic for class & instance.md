@@ -12,26 +12,27 @@ class GetAvailableIntVariable(object):
         def get_available_variables():
             caller_type = object_type if object is None else object
 
+            caller_type.available_variables_dict = {}
+
+            # Main logic to add all int object into dictionary
+            for attribute in dir(caller_type):
+                if attribute.startswith("__"):
+                    continue
+                if not isinstance(getattr(caller_type, attribute), int):
+                    continue
+
+                value = getattr(caller_type, attribute)
+                caller_type.available_variables_dict[attribute] = value
+
             # handle called by class
             if object is None:
-                print("Nothing to do when called by class")
-                return None
+                for x in range(2):
+                    attr_name = f"class_var_{x}"
+                    attr_value = int(x)
+                    caller_type.available_variables_dict[attr_name] = attr_value
 
-            # handle called by instance
-            else:
-                caller_type.available_variables_dict = {}
-
-                for attribute in dir(caller_type):
-                    if attribute.startswith("__"):
-                        continue
-                    if not isinstance(getattr(caller_type, attribute), int):
-                        continue
-
-                    value = getattr(caller_type, attribute)
-                    caller_type.available_variables_dict[attribute] = value
-
-                print("Return all the available int variable")
-                return caller_type.available_variables_dict
+            # Return the int object dict
+            return caller_type.available_variables_dict
 
         return get_available_variables
 
@@ -41,20 +42,27 @@ class TestA(object):
 
     # Generate int variable for testing
     def __init__(self, variable_num=1):
+
         num = 0
         for x in range(variable_num):
-            setattr(self, f"var_{num}", num * 3)
+            setattr(self, f"instance_var_{num}", int(num * 3))
             num += 1
 
 
 # An instace that having 3 int variable
 instanceA = TestA(3)
 
-# Supposed should print out the 3 generated int variables
-print(instanceA.get_available_int_variables())
-
 # Supposed should print out "None" as it called by class
-print(TestA.get_available_int_variables())
+print("If called by class, will add class_var")
+print("result: " + str(TestA.get_available_int_variables()))
+print(TestA.available_variables_dict)
+
+print("\n\n")
+
+# Supposed should print out the 3 generated int variables
+print("called by instance, will only have instance_var")
+print("result: " + str(instanceA.get_available_int_variables()))
+print(instanceA.available_variables_dict)
 
 ```
 
