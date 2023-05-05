@@ -5,8 +5,11 @@ eg: `docker exec -it a49b201f5e9d775c4f70596d242b803fcdf9eb115356e306cf33021687e
 2. ENTER `redis-cli` to use the Redis CMD
 
 ### Access redis with Django_Redis
-1. Get into Django shell
-2. from django_redis import get_redis_connection
-3. redis = get_redis_connection("default")
-4. redis.keys('flow_*')
-5. `for key in x: cache.delete(key)`
+Get into Django shell
+
+```Python
+from django_redis import get_redis_connection
+redis = get_redis_connection("default")
+redis.keys('flow_*')
+for key in x: redis.delete(key)
+```
