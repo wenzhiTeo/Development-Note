@@ -9,3 +9,4 @@ eg: `docker exec -it a49b201f5e9d775c4f70596d242b803fcdf9eb115356e306cf33021687e
 2. from django_redis import get_redis_connection
 3. redis = get_redis_connection("default")
 4. redis.keys('flow_*')
+5. `for key in x: cache.delete(key)`
