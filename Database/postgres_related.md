@@ -16,6 +16,12 @@ services:
 ## Postgress analysis tool
 https://github.com/dalibo/pev2#all-in-one-local-no-installation-no-network
 
+## Backup DB
+```
+DB_CONTAINER_NAME=$(docker ps --format "{{.Names}}" | grep 'DB_CONTAINER_NAME')
+docker exec $DB_CONTAINER_NAME pg_dumpall -U postgres > backup.sql
+```
+
 ## Restore DB
 ```
 DB_CONTAINER_NAME=$(docker ps --format "{{.Names}}" | grep 'DB_CONTAINER_NAME')
