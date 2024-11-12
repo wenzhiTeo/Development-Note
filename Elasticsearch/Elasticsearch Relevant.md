@@ -9,3 +9,6 @@ https://github.com/django-es/django-elasticsearch-dsl/blob/master/django_elastic
 ```
 curl -X PUT localhost:9200/_cluster/settings -H "Content-Type: application/json" -d '{ "persistent": { "cluster.max_shards_per_node": "2500" } }'
 ```
+
+## Delete all index
+curl -XDELETE localhost:9200/*
